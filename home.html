@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JW Schilderwerken | Schilder in Houten</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>JW Schilderwerken</h1>
+            <p>Kwaliteit boven kwantiteit in Houten</p>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="container">
+            <h2>Schildersbedrijf in Houten</h2>
+            <p>Op zoek naar een goed schildersbedrijf voor uw binnenschilderwerk of buitenschilderwerk? Wij schilderen voor particulieren, bedrijven en VvE's.</p>
+            
+            <div class="usp-grid">
+                <div class="usp-item">✔️ Scherpe en heldere offerte</div>
+                <div class="usp-item">✔️ Duidelijke afspraken</div>
+                <div class="usp-item">✔️ Uitstekende service</div>
+                <div class="usp-item">✔️ Garantie op geleverd werk</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diensten Section (Grid) -->
+    <section class="services">
+        <div class="container grid-3">
+            <div class="service-card">
+                <h3>Buitenschilderwerk</h3>
+                <p>Onderhevig aan weer en wind. Wij verzorgen kozijnen, deuren en dakkapellen. Houtrot herstellen we direct!</p>
+            </div>
+            <div class="service-card">
+                <h3>Binnenschilderwerk</h3>
+                <p>Van trappen en binnendeuren tot wanden en plafonds. Alles voor een strak interieur.</p>
+            </div>
+            <div class="service-card">
+                <h3>Latex Spuiten</h3>
+                <p>Goedkoper dan traditioneel schilderen, sneller en een extreem strak resultaat voor uw muren.</p>
+            </div>
+        </div>
+    </section>
+    <section class="contact-form-section">
+    <div class="container small-container">
+        <h2>Neem contact met ons op</h2>
+        <p>Vul het onderstaande formulier in voor een prijsopgave op maat of voor advies op locatie.</p>
+
+        <form id="jw-contact-form" class="styled-form">
+            <div class="form-group">
+                <label for="naam">Uw Naam *</label>
+                <input type="text" id="naam" name="naam" required placeholder="Volledige naam">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail Adres *</label>
+                <input type="email" id="email" name="email" required placeholder="uw@email.nl">
+            </div>
+
+            <div class="form-group">
+                <label for="telefoon">Telefoonnummer *</label>
+                <input type="tel" id="telefoon" name="telefoon" required placeholder="06 - 123 456 78">
+            </div>
+
+            <div class="form-group">
+                <label for="werkzaamheden">Wat kunnen wij voor u doen? *</label>
+                <select id="werkzaamheden" name="werkzaamheden" required>
+                    <option value="" disabled selected>Maak een keuze...</option>
+                    <option value="Binnenschilderwerk">Binnenschilderwerk</option>
+                    <option value="Buitenschilderwerk">Buitenschilderwerk</option>
+                    <option value="Latex Spuiten">Latex Spuiten</option>
+                    <option value="Glasvezelbehang">Glasvezelbehang aanbrengen</option>
+                    <option value="Spack spuiten">Spack spuiten</option>
+                    <option value="Houtrot herstel">Houtrot herstel</option>
+                    <option value="Overige">Overige diensten</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bericht">Uw vraag of opmerking</label>
+                <textarea id="bericht" name="bericht" rows="5" placeholder="Beschrijf hier kort de opdracht of het aantal m2..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">VRAAG OFFERTE AAN</button>
+        </form>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Contactgegevens</h3>
+                <p>JW Schilderwerken</p>
+                <p>Telefoon: 06-11516016</p>
+                <p>KVK: 73571474</p>
+                <p>Bereikbaar: Ma t/m Vr (08:00 - 18:00)</p>
+            </div>
+            <div class="footer-col">
+                <h3>BTW Voordeel</h3>
+                <p>Woningen ouder dan 2 jaar vallen onder het <strong>9% BTW tarief</strong>. Dit geldt voor arbeid én materiaal.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Winterschilder</h3>
+                <p>Schilderwerk tussen 21 nov en 21 maart? Vraag naar de speciale winterschilder-korting!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/31611516016" target="_blank" class="whatsapp-floating">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
