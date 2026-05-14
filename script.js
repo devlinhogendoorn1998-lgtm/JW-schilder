@@ -1,45 +1,46 @@
-// Mentor focus: Simpel en effectief.
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("JW Schilderwerken site geladen. Alle systemen online.");
-    
-    // Smooth scroll naar sections (indien nodig)
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log("Navigeren naar sectie...");
-        });
-    });
+/* Cookie Banner — toont opnieuw na 180 dagen */
+const cookieBanner = document.getElementById('cookie-banner');
+const consentDate = localStorage.getItem('cookie-consent-date');
+const daysSince = consentDate ? Math.floor((Date.now() - parseInt(consentDate)) / 86400000) : 999;
+
+if (cookieBanner && (!localStorage.getItem('cookie-consent') || daysSince > 180)) {
+    cookieBanner.hidden = false;
+}
+document.getElementById('cookie-accept')?.addEventListener('click', function () {
+    localStorage.setItem('cookie-consent', 'accepted');
+    localStorage.setItem('cookie-consent-date', Date.now().toString());
+    cookieBanner.hidden = true;
 });
-/* Mentor check: Formulier verwerking via mailto */
+document.getElementById('cookie-decline')?.addEventListener('click', function () {
+    localStorage.setItem('cookie-consent', 'declined');
+    localStorage.setItem('cookie-consent-date', Date.now().toString());
+    cookieBanner.hidden = true;
+});
+
+/* Contactformulier */
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('jw-contact-form');
-
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
+            const naam    = document.getElementById('naam').value.trim();
+            const email   = document.getElementById('email').value.trim();
+            const tel     = document.getElementById('telefoon').value.trim();
+            const werk    = document.getElementById('werkzaamheden').value;
+            const bericht = document.getElementById('bericht').value.trim();
 
-            // Data ophalen
-            const naam = document.getElementById('naam').value;
-            const email = document.getElementById('email').value;
-            const tel = document.getElementById('telefoon').value;
-            const werk = document.getElementById('werkzaamheden').value;
-            const bericht = document.getElementById('bericht').value;
+            const onderwerp = 'Offerte aanvraag: ' + werk + ' \u2014 ' + naam;
+            const body =
+                'Naam: '          + naam    + '\r\n' +
+                'E-mail: '        + email   + '\r\n' +
+                'Telefoon: '      + tel     + '\r\n' +
+                'Werkzaamheden: ' + werk    + '\r\n\r\n' +
+                'Bericht:\r\n'    + bericht;
 
-            const ontvanger = "info@schildersbedrijfinhouten.nl";
-            const onderwerp = encodeURIComponent(`Offerte aanvraag: ${werk} - ${naam}`);
-            
-            // Body van de mail opbouwen
-            let mailBody = `Naam: ${naam}%0D%0A`;
-            mailBody += `E-mail: ${email}%0D%0A`;
-            mailBody += `Telefoon: ${tel}%0D%0A`;
-            mailBody += `Werkzaamheden: ${werk}%0D%0A%0D%0A`;
-            mailBody += `Bericht:%0D%0A${bericht}`;
-
-            // Open mail programma
-            window.location.href = `mailto:${ontvanger}?subject=${onderwerp}&body=${mailBody}`;
-            
-            console.log("Formulier verzonden naar mail-client.");
+            window.location.href =
+                'mailto:info@schildersbedrijfinhouten.nl' +
+                '?subject=' + encodeURIComponent(onderwerp) +
+                '&body='    + encodeURIComponent(body);
         });
     }
 });

@@ -5,6 +5,8 @@
     box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
@@ -19,8 +21,7 @@ body {
 
 /* Hero */
 .hero {
-    background: linear-gradient(rgba(44, 65, 114, 0.8), rgba(44, 65, 114, 0.8)), 
-                url('https://schildersbedrijfinhouten.nl/wp-content/uploads/2022/02/schilder-utrecht-103-1-scaled.jpg');
+    background: linear-gradient(rgba(44, 65, 114, 0.8), rgba(44, 65, 114, 0.8)), url('img/hero-schilder.webp');
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -104,6 +105,81 @@ footer h3 { color: #a9caed; margin-bottom: 15px; }
 @media (max-width: 768px) {
     .hero h1 { font-size: 2rem; }
 }
+
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: #1a2540;
+    border-top: 3px solid #a9caed;
+    padding: 18px 24px;
+    animation: slideUp 0.4s ease;
+}
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+.cookie-icon { font-size: 2rem; flex-shrink: 0; }
+.cookie-text { flex: 1; min-width: 200px; }
+.cookie-text strong {
+    display: block;
+    color: #a9caed;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+.cookie-text p {
+    font-size: 0.83rem;
+    color: #ccd6f0;
+    margin: 0;
+    line-height: 1.5;
+}
+.cookie-buttons { display: flex; gap: 10px; flex-wrap: wrap; flex-shrink: 0; }
+.btn-cookie-accept {
+    background: #2c4172;
+    color: #fff;
+    border: 2px solid #a9caed;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+}
+.btn-cookie-accept:hover {
+    background: #a9caed;
+    color: #1a2540;
+    box-shadow: 0 0 12px rgba(169,202,237,0.5);
+}
+.btn-cookie-decline {
+    background: transparent;
+    color: #8899bb;
+    border: 1px solid #3d5080;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 0.83rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s, color 0.2s;
+}
+.btn-cookie-decline:hover { border-color: #a9caed; color: #a9caed; }
+@media (max-width: 600px) {
+    .cookie-buttons { width: 100%; }
+    .btn-cookie-accept, .btn-cookie-decline { flex: 1; text-align: center; }
+}
 /* Contactformulier Styling */
 .contact-form-section {
     background-color: #f4f7f9;
@@ -161,4 +237,109 @@ footer h3 { color: #a9caed; margin-bottom: 15px; }
 
 .btn-submit:hover {
     background-color: #2c4172;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    background: #2c4172;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 0 0 6px 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    z-index: 10000;
+    text-decoration: none;
+    transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+/* Top Nav */
+.topnav {
+    background: #2c4172;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 0 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.nav-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+.btn-offerte {
+    background: #a9caed;
+    color: #1a2540;
+    text-decoration: none;
+    padding: 9px 22px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background 0.2s, transform 0.15s;
+}
+.btn-offerte:hover { background: #fff; transform: scale(1.04); }
+
+/* Hero CTA */
+.btn-hero {
+    display: inline-block;
+    background: #fff;
+    color: #2c4172;
+    text-decoration: none;
+    padding: 13px 32px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background 0.2s, transform 0.15s;
+}
+.btn-hero:hover { background: #a9caed; transform: scale(1.04); }
+
+/* Footer Werkgebied Locaties */
+.footer-locations {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 12px;
+    margin-top: 6px;
+    font-size: 0.84rem;
+    color: #bbb;
+}
+
+/* Focus Visible (Toegankelijkheid) */
+:focus-visible {
+    outline: 3px solid #a9caed;
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+/* Footer links */
+footer a { color: #a9caed; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+.footer-copy {
+    border-top: 1px solid #3a3a3a;
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #666;
+}
+.footer-copy strong { color: #aaa; }
+.footer-link { color: #a9caed; text-decoration: none; font-weight: 600; }
+.footer-link:hover { text-decoration: underline; }
+
+@media (max-width: 480px) {
+    .nav-brand { font-size: 0.88rem; }
+    .btn-offerte { padding: 8px 14px; font-size: 0.82rem; }
+    .footer-locations { grid-template-columns: 1fr; }
 }

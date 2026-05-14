@@ -3,18 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JW Schilderwerken | Schilder in Houten</title>
+    <meta name="description" content="JW Schilderwerken — vakkundig schilder voor binnenschilderwerk, buitenschilderwerk en latex spuiten in Houten, Nieuwegein, IJsselstein, Utrecht en omgeving. Vraag vrijblijvend een offerte aan.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2c4172">
+    <meta property="og:title" content="JW Schilderwerken | Schilder in Houten en omgeving">
+    <meta property="og:description" content="Vakkundig schilder voor binnenschilderwerk, buitenschilderwerk en latex spuiten. Actief in Houten, Nieuwegein, IJsselstein, Utrecht en omgeving.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://schildersbedrijfinhouten.nl/">
+    <link rel="canonical" href="https://schildersbedrijfinhouten.nl/">
+    <link rel="preload" as="image" href="img/hero-schilder.webp" fetchpriority="high">
+    <title>JW Schilderwerken | Schilder in Houten en omgeving</title>
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "JW Schilderwerken",
+      "telephone": "+31611516016",
+      "email": "info@schildersbedrijfinhouten.nl",
+      "url": "https://schildersbedrijfinhouten.nl/",
+      "address": { "@type": "PostalAddress", "addressLocality": "Houten", "addressCountry": "NL" },
+      "areaServed": ["Houten","Nieuwegein","IJsselstein","Bunnik","Utrecht","Wijk bij Duurstede","Culemborg","Vianen","Driebergen-Rijsenburg","Doorn","Amerongen"],
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <h1>JW Schilderwerken</h1>
-            <p>Kwaliteit boven kwantiteit in Houten</p>
-        </div>
-    </header>
+<header class="hero">
+    <div class="container">
+        <h1>JW Schilderwerken</h1>
+        <p>Kwaliteit boven kwantiteit in Houten</p>
+        <a href="#contact" class="btn-hero">Vraag gratis offerte aan</a>
+    </div>
+</header>
 
     <!-- Intro Section -->
     <section class="intro">
@@ -48,7 +76,7 @@
             </div>
         </div>
     </section>
-    <section class="contact-form-section">
+    <section id="contact" class="contact-form-section">
     <div class="container small-container">
         <h2>Neem contact met ons op</h2>
         <p>Vul het onderstaande formulier in voor een prijsopgave op maat of voor advies op locatie.</p>
@@ -99,9 +127,18 @@
             <div class="footer-col">
                 <h3>Contactgegevens</h3>
                 <p>JW Schilderwerken</p>
-                <p>Telefoon: 06-11516016</p>
+                <p>Telefoon: <a href="tel:+31611516016">06-11516016</a></p>
                 <p>KVK: 73571474</p>
                 <p>Bereikbaar: Ma t/m Vr (08:00 - 18:00)</p>
+            </div>
+            <div class="footer-col">
+                <h3>Werkgebied</h3>
+                <ul class="footer-locations">
+                    <li>Houten</li><li>Nieuwegein</li><li>IJsselstein</li>
+                    <li>Utrecht</li><li>Bunnik</li><li>Wijk bij Duurstede</li>
+                    <li>Culemborg</li><li>Vianen</li><li>Driebergen-Rijsenburg</li>
+                    <li>Doorn</li><li>Amerongen</li>
+                </ul>
             </div>
             <div class="footer-col">
                 <h3>BTW Voordeel</h3>
@@ -112,13 +149,32 @@
                 <p>Schilderwerk tussen 21 nov en 21 maart? Vraag naar de speciale winterschilder-korting!</p>
             </div>
         </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 <strong>schildersbedrijfinhouten</strong> | 
+            Hosted by <a href="https://ttdigitaldesign.nl" target="_blank" rel="noopener noreferrer" class="footer-link">TT-DigitalDesign</a></p>
+        </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/31611516016" target="_blank" class="whatsapp-floating">
+    <a href="https://wa.me/31611516016" target="_blank" rel="noopener noreferrer" class="whatsapp-floating" aria-label="Chat met JW Schilderwerken via WhatsApp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
-    <script src="script.js"></script>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookiemelding" hidden>
+        <div class="cookie-content">
+            <span class="cookie-icon">🍪</span>
+            <div class="cookie-text">
+                <strong>Wij gebruiken cookies</strong>
+                <p>Deze website gebruikt functionele cookies om goed te werken. Uw gegevens worden nooit verkocht of gedeeld met derden.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-cookie-accept" id="cookie-accept">Akkoord</button>
+                <button class="btn-cookie-decline" id="cookie-decline">Alleen noodzakelijk</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
