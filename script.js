@@ -17,6 +17,19 @@ document.getElementById('cookie-decline')?.addEventListener('click', function ()
     cookieBanner.hidden = true;
 });
 
+/* Foto Grid Slider */
+function changeSlide(gridId, direction) {
+    var wrapper = document.querySelector('#' + gridId + ' .slider-wrapper');
+    if (!wrapper) return;
+    var slides = wrapper.querySelectorAll('.slide');
+    var current = wrapper.querySelector('.slide.active');
+    if (!current) return;
+    var idx = Array.prototype.indexOf.call(slides, current);
+    slides[idx].classList.remove('active');
+    var next = (idx + direction + slides.length) % slides.length;
+    slides[next].classList.add('active');
+}
+
 /* Contactformulier */
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('jw-contact-form');
