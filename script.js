@@ -52,7 +52,10 @@ document.addEventListener('DOMContentLoaded', function () {
             bericht:       document.getElementById('bericht').value.trim()
         };
 
-        emailjs.send('service_797l3qo', 'template_o9hjjxn', templateParams)
+        Promise.all([
+            emailjs.send('service_797l3qo', 'template_o9hjjxn',  templateParams),
+            emailjs.send('service_797l3qo', 'template_pnbrz1u', templateParams)
+        ])
             .then(function () {
                 contactForm.style.display = 'none';
                 var bedankt = document.getElementById('form-bedankt');
