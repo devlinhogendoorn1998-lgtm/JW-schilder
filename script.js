@@ -30,30 +30,30 @@ function changeSlide(gridId, direction) {
     slides[next].classList.add('active');
 }
 
-/* Contactformulier */
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('jw-contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const naam    = document.getElementById('naam').value.trim();
-            const email   = document.getElementById('email').value.trim();
-            const tel     = document.getElementById('telefoon').value.trim();
-            const werk    = document.getElementById('werkzaamheden').value;
-            const bericht = document.getElementById('bericht').value.trim();
+/* Contactformulier — EmailJS */
+document.addEventListener('DOMContentLoaded', function () {
+    emailjs.init('PmeYh9fT6qhQQ3Nzn');
 
-            const onderwerp = 'Offerte aanvraag: ' + werk + ' \u2014 ' + naam;
-            const body =
-                'Naam: '          + naam    + '\r\n' +
-                'E-mail: '        + email   + '\r\n' +
-                'Telefoon: '      + tel     + '\r\n' +
-                'Werkzaamheden: ' + werk    + '\r\n\r\n' +
-                'Bericht:\r\n'    + bericht;
+    var contactForm = document.getElementById('jw-contact-form');
+    if (!contactForm) return;
 
-            window.location.href =
-                'mailto:info@schildersbedrijfinhouten.nl' +
-                '?subject=' + encodeURIComponent(onderwerp) +
-                '&body='    + encodeURIComponent(body);
-        });
-    }
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var submitBtn = contactForm.querySelector('.btn-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Versturen...';
+
+        emailjs.sendForm('service_797l3qo', 'template_o9hjjxn', contactForm)
+            .then(function () {
+                contactForm.style.display = 'none';
+                var bedankt = document.getElementById('form-bedankt');
+                if (bedankt) bedankt.hidden = false;
+            }, function (error) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'VRAAG OFFERTE AAN';
+                alert('Er ging iets mis. Probeer het opnieuw of bel ons direct op 06-11516016.');
+                console.error('EmailJS fout:', error);
+            });
+    });
 });
