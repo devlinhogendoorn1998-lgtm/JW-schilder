@@ -44,7 +44,15 @@ document.addEventListener('DOMContentLoaded', function () {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Versturen...';
 
-        emailjs.sendForm('service_797l3qo', 'template_o9hjjxn', contactForm)
+        var templateParams = {
+            naam:          document.getElementById('naam').value.trim(),
+            email:         document.getElementById('email').value.trim(),
+            telefoon:      document.getElementById('telefoon').value.trim(),
+            werkzaamheden: document.getElementById('werkzaamheden').value,
+            bericht:       document.getElementById('bericht').value.trim()
+        };
+
+        emailjs.send('service_797l3qo', 'template_o9hjjxn', templateParams)
             .then(function () {
                 contactForm.style.display = 'none';
                 var bedankt = document.getElementById('form-bedankt');
