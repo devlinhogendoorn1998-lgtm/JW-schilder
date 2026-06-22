@@ -1,4 +1,4 @@
-/* Cookie Banner — toont opnieuw na 180 dagen */
+// Sectie: Cookie Banner — toont opnieuw na 180 dagen
 const cookieBanner = document.getElementById('cookie-banner');
 const consentDate = localStorage.getItem('cookie-consent-date');
 const daysSince = consentDate ? Math.floor((Date.now() - parseInt(consentDate)) / 86400000) : 999;
@@ -17,7 +17,54 @@ document.getElementById('cookie-decline')?.addEventListener('click', function ()
     cookieBanner.hidden = true;
 });
 
-/* Foto Grid Slider */
+// Sectie: Hamburger Dropdown Menu
+(function () {
+    var btn = document.getElementById('hamburger-btn');
+    var dropdown = document.getElementById('nav-dropdown');
+    if (!btn || !dropdown) return;
+
+    // Toggle open/dicht bij klik op hamburger
+    btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = dropdown.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        btn.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
+    });
+
+    // Sluit menu bij klik buiten het menu
+    document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target) && e.target !== btn) {
+            dropdown.classList.remove('open');
+            btn.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-label', 'Menu openen');
+        }
+    });
+
+    // Sluit menu bij Escape-toets
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            dropdown.classList.remove('open');
+            btn.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-label', 'Menu openen');
+            btn.focus();
+        }
+    });
+
+    // Sluit menu na klik op een menu-item
+    dropdown.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            dropdown.classList.remove('open');
+            btn.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-label', 'Menu openen');
+        });
+    });
+})();
+
+// Sectie: Foto Grid Slider
 function changeSlide(gridId, direction) {
     var wrapper = document.querySelector('#' + gridId + ' .slider-wrapper');
     if (!wrapper) return;
@@ -30,9 +77,11 @@ function changeSlide(gridId, direction) {
     slides[next].classList.add('active');
 }
 
-/* Contactformulier — EmailJS */
+// Sectie: Contactformulier — EmailJS
 document.addEventListener('DOMContentLoaded', function () {
-    emailjs.init('PmeYh9fT6qhQQ3Nzn');
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init('PmeYh9fT6qhQQ3Nzn');
+    }
 
     var contactForm = document.getElementById('jw-contact-form');
     if (!contactForm) return;
